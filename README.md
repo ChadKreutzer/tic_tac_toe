@@ -41,6 +41,5 @@ game loop
 ## Proposed Classes
 
 * Player
-* Piece
 * Board
 * Game

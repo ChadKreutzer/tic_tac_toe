@@ -1,25 +1,17 @@
+# Main Game loop
+class Game
+end
+
+# The Game Board
 class Board
-  
-  def initialize
-    @grid = Array.new(9)
+  attr_accessor :board, :player_move, :winner
+
+  def intialize
+    @board = Array.new(9)
+    @winner = false
   end
-  
 end
 
+# Each player the computer and the human
 class Player
-  attr_accessor :piece
-  
-  def move
-  end
-  
-end
-
-class Computer < Player
-end
-
-class Human < Player
-end
-
-class Piece
-  attr_accessor :x_or_o
 end
