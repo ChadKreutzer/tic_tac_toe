@@ -1,5 +1,6 @@
 require 'minitest/autorun'
-require_relative '../lib/tic_tac_toe.rb'
+require_relative '../tic_tac_toe'
+Dir['../lib/**.*'].each { |file| require_relative file }
 
 class TicTacTest < Minitest::Test
   def test_board_returns_9_element_array
@@ -33,8 +34,13 @@ class TicTacTest < Minitest::Test
     assert_equal expected, ::Player.new.piece = 'X'
   end
 
-  def test_player_move_choice
+  def test_player_good_move_choice
     expected = 4
     assert_equal expected, ::Player.new.move(5)
+  end
+
+  def test_player_bad_move_choice
+    expected = RangeError
+    assert_equal expected, ::Player.new.move(10)
   end
 end
