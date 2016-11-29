@@ -32,4 +32,9 @@ class TicTacTest < Minitest::Test
     expected = 'X'
     assert_equal expected, ::Player.new.piece = 'X'
   end
+
+  def test_player_move_choice
+    expected = 4
+    assert_equal expected, ::Player.new.move(5)
+  end
 end
