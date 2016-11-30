@@ -14,8 +14,8 @@ class Board
     " #{@board[6]} | #{@board[7]} | #{@board[8]}\n" \
   end
 
-  def check_for_empty?(move)
-    @board[move].is_a?(Numeric) ? true : false
+  def check_for_empty?(spot)
+    @board[spot].is_a?(Numeric) ? true : false
   end
 
   def place_piece(spot, piece)
