@@ -14,12 +14,13 @@ class Board
     " #{@board[6]} | #{@board[7]} | #{@board[8]}\n" \
   end
 
-  def check_for_empty?(spot)
-    @board[spot].is_a?(Numeric) ? true : false
+  def place_piece(spot, piece)
+    @board[spot] = empty_spot?(spot) ? piece : @board[spot]
   end
 
-  def place_piece(spot, piece)
-    @board[spot] = piece
-    @board
+  private
+
+  def empty_spot?(spot)
+    @board[spot].is_a?(Symbol) ? false : true
   end
 end

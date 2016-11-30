@@ -29,8 +29,15 @@ class TicTacTest < Minitest::Test
   end
 
   def test_adding_piece_to_board
-    expected = [1, 2, 3, 4, :X, 6, 7, 8, 9]
+    expected = :X
     assert_equal expected, ::Board.new.place_piece(4, :X)
+  end
+
+  def test_trying_to_add_piece_to_filled_spot
+    b = Board.new
+    b.board = [1, 2, 3, :X, 5, 6, 7, 8, 9]
+    expected = :X
+    assert_equal expected, b.place_piece(3, :O)
   end
 
   def test_no_win_yet
