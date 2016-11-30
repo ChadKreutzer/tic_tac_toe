@@ -1,15 +1,14 @@
 # Game logic
 class WinTest
   attr_reader :board
-  
+
   def initialize(board)
     @board = board
   end
-  
-  
+
   WINNERS = [[0, 4, 8], [2, 4, 6], [0, 1, 2], [3, 4, 5],
              [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8]].freeze
-  
+
   def self.win_or_tie?(board)
     new(board).win_or_tie?
   end
@@ -31,6 +30,6 @@ class WinTest
   end
 
   def tie_game?
-    board.all? { |spot| spot.is_a?(String) }
+    board.all? { |spot| spot.is_a?(Symbol) }
   end
 end
