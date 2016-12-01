@@ -52,8 +52,6 @@ class TicTacToe
       play_again?
     end
   end
-
-  TicTacToe.new.turn
 end
 
-TicTacToe.new
+TicTacToe.new.turn
