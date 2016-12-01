@@ -15,12 +15,23 @@ class Board
   end
 
   def place_piece(spot, piece)
-    @board[spot] = empty_spot?(spot) ? piece : @board[spot]
+    @piece = piece
+    @board[spot] = empty_spot?(spot) ? @piece : bad_choice
   end
 
   private
 
   def empty_spot?(spot)
     @board[spot].is_a?(Symbol) ? false : true
+  end
+
+  def bad_choice
+    puts "That spot is taken, try again\n>"
+    c = new_choice
+    place_piece(c, @piece)
+  end
+
+  def new_choice
+    gets.chomp.to_i
   end
 end

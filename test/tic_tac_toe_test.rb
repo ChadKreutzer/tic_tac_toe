@@ -34,10 +34,13 @@ class TicTacTest < Minitest::Test
   end
 
   def test_trying_to_add_piece_to_filled_spot
-    b = Board.new
-    b.board = [1, 2, 3, :X, 5, 6, 7, 8, 9]
-    expected = :X
-    assert_equal expected, b.place_piece(3, :O)
+    with_stdin do |user|
+      user.puts 4
+      b = Board.new
+      b.board = [1, 2, 3, :X, 5, 6, 7, 8, 9]
+      expected = :O
+      assert_equal expected, b.place_piece(3, :O)
+    end
   end
 
   def test_no_win_yet

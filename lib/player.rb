@@ -9,7 +9,7 @@ class Player
   private
 
   def bad_choice
-    puts 'Not a valid choice, try again'
+    puts "Not a valid choice, try again\n>"
     c = new_choice
     move(c)
   end
