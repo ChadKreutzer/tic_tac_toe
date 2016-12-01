@@ -3,6 +3,11 @@ require_relative '../app'
 Dir['../lib/**.*'].each { |file| require_relative file }
 
 class TicTacTest < Minitest::Test
+  def setup
+    @b = Board.new
+    @b.board = [1, 2, 3, :X, 5, 6, 7, 8, :O]
+  end
+
   def with_stdin
     stdin = $stdin
     $stdin, write = IO.pipe
@@ -21,11 +26,11 @@ class TicTacTest < Minitest::Test
     expected = <<-GAMEBOARD
  1 | 2 | 3
 ---+---+---
- 4 | 5 | 6
+ X | 5 | 6
 ---+---+---
- 7 | 8 | 9
+ 7 | 8 | O
     GAMEBOARD
-    assert_equal expected, ::Board.new.display_board
+    assert_equal expected, @b.display_board
   end
 
   def test_adding_piece_to_board

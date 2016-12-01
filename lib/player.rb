@@ -2,6 +2,10 @@
 class Player
   attr_accessor :piece
 
+  def initialize
+    @piece = :X
+  end
+
   def move(choice)
     choice.between?(1, 9) ? choice - 1 : bad_choice
   end
