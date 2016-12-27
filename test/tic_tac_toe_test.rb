@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-Dir['../lib/**.*'].each { |file| require_relative file }
+Dir['./lib/*'].each { |file_name| require file_name }
 # require_relative '../app.rb'
 
 class TicTacTest < Minitest::Test

@@ -1,4 +1,4 @@
-Dir['lib/**.*'].each { |file| require_relative file }
+Dir['./lib/*'].each { |file_name| require file_name }
 
 # Game loop
 class TicTacToe
